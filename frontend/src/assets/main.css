@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/PublicSans-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/PublicSans-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/PublicSans-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/PublicSans-700.woff2') format('woff2');
+}
+
+/* ===== 设计令牌 ===== */
+:root {
+  --accent: #14b8a6;
+  --accent-soft: rgba(20, 184, 166, 0.12);
+  --accent-fg: #ffffff;
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --border: #e6e6e9;
+  --muted: #71717a;
+  --content: #18181b;
+  --hover: #f1f1f3;
+}
+
+.dark {
+  --accent-soft: rgba(20, 184, 166, 0.18);
+  --bg: #0c0d0f;
+  --card: #15171a;
+  --border: #26282d;
+  --muted: #9ca3af;
+  --content: #f4f4f5;
+  --hover: #1d1f23;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--content);
+  font-family: 'Public Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 滚动条克制风格 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* hairline 边框 */
+.hairline { border: 1px solid var(--border); }
+
+/* 失败行标红 */
+.row-failed { background: rgba(239, 68, 68, 0.06); }
+.row-failed:hover { background: rgba(239, 68, 68, 0.1); }
+
+/* 移动端抽屉过渡 */
+.gw-fade-enter-active, .gw-fade-leave-active { transition: opacity .2s ease; }
+.gw-fade-enter-from, .gw-fade-leave-to { opacity: 0; }
+.gw-slide-enter-active, .gw-slide-leave-active { transition: transform .22s ease; }
+.gw-slide-enter-from, .gw-slide-leave-to { transform: translateX(-100%); }
+
+/* JSON 预览 */
+pre.json-view {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.json-key { color: #059669; }
+.json-str { color: #2563eb; }
+.json-num { color: #d97706; }
+.json-bool { color: #dc2626; }
+.json-null { color: #9ca3af; }
+.dark .json-key { color: #34d399; }
+.dark .json-str { color: #60a5fa; }
+.dark .json-num { color: #fbbf24; }
+.dark .json-bool { color: #f87171; }

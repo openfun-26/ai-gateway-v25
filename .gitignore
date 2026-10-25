@@ -1,0 +1,39 @@
+# ---- 用户数据 / 运行时生成，绝不提交 ----
+data/gateway.db
+data/gateway.db-wal
+data/gateway.db-shm
+data/*.log
+data/*.pid
+data/frp_temp.ini
+data/frpc.ini
+data/backups/
+
+# ---- FRP 真实配置（只提交 frpc.example.ini 模板）----
+frpc.ini
+frpc-*.ini
+!frpc.example.ini
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# ---- Node / 前端 ----
+frontend/node_modules/
+frontend/dist/
+*.local
+
+# ---- 日志 / 临时文件 ----
+*.log
+*.pid
+nohup.out
+.DS_Store
+Thumbs.db
+
+# ---- 编辑器 ----
+.idea/
+.vscode/
+*.swp
