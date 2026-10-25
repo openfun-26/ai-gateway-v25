@@ -4,6 +4,15 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "选择部署环境"
+        required: true
+        default: "production"
+        type: choice
+        options:
+          - production
+          - staging
 
 jobs:
   deploy:
@@ -25,7 +34,24 @@ jobs:
       env:
         CLOUDFLARE_API_TOKEN: \${{ secrets.CLOUDFLARE_API_TOKEN }}
         
-    - name: Deploy Worker
+    - name: Deploy to Production
+      if: github.event.inputs.environment == "production" || github.event_name == "push"
       run: |
         cd cloudflare-worker
         wrangler deploy --env production
+      env:
+        CLOUDFLARE_API_TOKEN: \${{ secrets.CLOUDFLARE_API_TOKEN }}
+        
+    - name: Deploy to Staging
+      if: github.event.inputs.environment == "staging"
+      run: |
+        cd cloudflare-worker
+        wrangler deploy --env staging
+      env:
+        CLOUDFLARE_API_TOKEN: \${{ secrets.CLOUDFLARE_API_TOKEN }}
+        
+    - name: Deployment Status
+      run: |
+        echo "🎉 部署完成！"
+        echo "📍 生产环境：https://ai-gateway-v25.workers.dev"
+        echo "📍 预览环境：https://ai-gateway-v25-staging.workers.dev"

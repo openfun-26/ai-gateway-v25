@@ -4,10 +4,18 @@ compatibility_date = "2023-12-01"
 
 [env.production]
 routes = [
-    { pattern = "https://ai-gateway-v25.*/*", zone_id = "your-zone-id" }
+    { pattern = "https://ai-gateway-v25.workers.dev/*" }
 ]
 
 [env.staging]
 routes = [
-    { pattern = "https://ai-gateway-v25-staging.*/*", zone_id = "your-zone-id" }
+    { pattern = "https://ai-gateway-v25-staging.workers.dev/*" }
 ]
+
+[env.production.vars]
+ENVIRONMENT = "production"
+VERSION = "v25"
+
+[env.staging.vars]
+ENVIRONMENT = "staging"
+VERSION = "v25-staging"
