@@ -1,0 +1,13 @@
+name = "ai-gateway-v25"
+main = "worker.js"
+compatibility_date = "2023-12-01"
+
+[env.production]
+routes = [
+    { pattern = "https://ai-gateway-v25.*/*", zone_id = "your-zone-id" }
+]
+
+[env.staging]
+routes = [
+    { pattern = "https://ai-gateway-v25-staging.*/*", zone_id = "your-zone-id" }
+]
