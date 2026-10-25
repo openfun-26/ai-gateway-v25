@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "🔍 AI Gateway v25 - 部署状态检查"
+echo "=================================="
+echo "🌐 GitHub仓库: https://github.com/openfun-26/ai-gateway-v25"
+echo "☁️ Cloudflare Worker: https://ai-gateway-v25.workers.dev"
+echo ""
+echo "📋 手动触发部署："
+echo "   1. 访问: https://github.com/openfun-26/ai-gateway-v25/actions"
+echo "   2. 点击 Run workflow"
+echo "   3. 选择环境并运行"
